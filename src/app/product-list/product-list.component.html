@@ -1,0 +1,31 @@
+<h2>List of product</h2>
+<div class="flex mt-2">
+    <button mat-raised-button (click)="addProduct()">Add Product</button>
+</div>
+
+<div class="w-full">
+    @for(item of productArray; track item){
+
+    }
+    <div
+        class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{item.name}}</h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400">{{item.description}}</p>
+        <p class="font-bold">Price: {{item.price}}</p>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="editProduct(item)">
+                <span>Update</span>
+            </button>
+            <button mat-menu-item (click)="deleteProduct(item)">
+                <span>Delete</span>
+            </button>
+        </mat-menu>
+
+    </div>
+
+
+</div>
